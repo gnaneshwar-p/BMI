@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>BMI Calculator</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+
+  <body>
+	<h1>BMI Calculator</h1>
+
+	<h2>Metric System (kg, m)</h2>
+	<p>Enter your height (m):</p>
+	<input type="number" id="metricHeight" placeholder="Height in meters" />
+	<p>Enter your weight (kg):</p>
+	<input type="number" id="metricWeight" placeholder="Weight in kilograms" />
+</p>
+	<input type="button" value="Calculate Metric BMI" onclick="calculateMetricBMI()" />
+
+	<h2>US Units (lb, in)</h2>
+	<p>Enter your height (in):</p>
+	<input type="number" id="usHeight" placeholder="Height in inches" />
+	<p>Enter your weight (lb):</p>
+	<input type="number" id="usWeight" placeholder="Weight in pounds" />
+</p>
+	<input type="button" value="Calculate US BMI" onclick="calculateUSBMI()" />
+
+	<h1>Your BMI value is: <span id="output">.</span></h1>
+	<h1>You are: <span id="comment">.</span></h1>
+
+	<script>
+		function calculateMetricBMI() {
+			var height = parseFloat(document.getElementById("metricHeight").value);
+			var weight = parseFloat(document.getElementById("metricWeight").value);
+
+			if (height > 0 && weight > 0) {
+				let bmiValue = weight / (height * height);
+				let bmiComment = getBMIComment(bmiValue);
+
+				// Display the results
+				document.getElementById("output").innerHTML = bmiValue.toFixed(2);
+				document.getElementById("comment").innerHTML = bmiComment;
+			} else {
+				alert("Please enter valid values for height and weight.");
+			}
+		}
+
+		function calculateUSBMI() {
+			var height = parseFloat(document.getElementById("usHeight").value);
+			var weight = parseFloat(document.getElementById("usWeight").value);
+
+			if (height > 0 && weight > 0) {
+				let bmiValue = (weight / (height * height)) * 703;
+				let bmiComment = getBMIComment(bmiValue);
+
+				// Display the results
+				document.getElementById("output").innerHTML = bmiValue.toFixed(2);
+				document.getElementById("comment").innerHTML = bmiComment;
+			} else {
+				alert("Please enter valid values for height and weight.");
+			}
+		}
+
+
+		function getBMIComment(bmi) {
+			if (bmi < 18.5) {
+				return "Underweight";
+			} else if (bmi >= 18.5 && bmi <= 24.9) {
+				return "Normal weight";
+			} else if (bmi > 25) {
+				return "Overweight";
+			}
+		}
+	</script>
+  </body>
+</html>
