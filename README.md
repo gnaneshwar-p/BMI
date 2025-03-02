@@ -1,4 +1,4 @@
-# BMI Calculator (Bash Script)
+# BMI Calculator 
 
 A simple Bash script that calculates your Body Mass Index (BMI) based on your weight and height, and categorizes the result.
 
@@ -25,6 +25,6 @@ A simple Bash script that calculates your Body Mass Index (BMI) based on your we
 1. **Clone this repository**:
 
    ```bash
-   git clone https://github.com/your-username/bmi-calculator.git
+   git clone https://github.com/gnaneshwar-p/BMI.git
    cd bmi-calculator
 
